@@ -1,0 +1,95 @@
+Name:
+    key: ['R','sh_bondk','sh_dihedk','Rg','LJ','lj_eps','hp_eps','mu','kT','thres_T','infile','convernum','series']
+Output:
+    # 'NA' as no output
+    outfile: ['out']
+    gsdfile: ['sphere.gsd']
+    # 'NA' is start from beginning
+    infile: ['NA']
+    info: ['']
+    series: [1]
+    recordT: [0]
+    growrec: [['tot','lj','Eshell','Elasticity','stretch','bend','hp']]
+Frame:
+    maxtime: [200000]
+    maxT: [1]
+Genome:
+    shape: ['sphere']
+    len: [1]
+    Rg: [0.]
+    p_typeid: [0]
+    p_bodyid: [-1]
+    p_bondid: [0]
+Constituent:
+    constituents: [OFF]
+    Rc: [0.2]
+Shell:
+    Rs: [0.1]
+    l0: [1.0]
+    R:  [1.19,1.22]
+    L: [1000.]
+    # R:  [1.,1.04,1.08,1.12,1.16,1.2,1.24,1.28,1.32,1.36,1.4,1.44,1.48,1.52,1.56,1.6,1.64,1.68,1.72]
+    #Shell bond constant ratio:
+    # gamma: [0.314]
+    # gamma: [0.3]
+    # gamma: [0.1,0.146,0.214,0.314,0.459,0.673,0.985,1.44,2.11,3.09,4.53,6.63,10.00]
+    hp_eps: [2.]
+    delhp_eps: [0.]
+    bondE: [0.0] #Shell bondE
+    pentE: [0.0] #pentamer penalty
+    l_tension: [0.0] #line tension
+    thres_T: [10]
+    convernum: [30]
+    #P-H angle threshold(angle=pi-planeangle)
+    # theta0: [1.57] #theta0 in unit of radians
+    thetagrow: [0.] #theta grow in unit of degrees
+    theta_lower: [5.0] #test at beginning if any two trimers are really close and should merge
+    # theta_upper: [36.0] #previous param for insert
+    # theta_tri: [0.0]  #detachment criteria angle for trimer
+    #HOOMD Shell ID
+    s_bodyid: [-1]
+    s_bondid: [1]
+    s_dihedralid: [0]
+Brownian:
+    METHOD: ['minimize']
+    #Grow Choose Parameter
+    #Gau:Gaussian  Bol: Boltzmann Factor
+    dis: ['Bol']
+    #Rosenbluth Factor Parameter
+    Pa: [0.5] #probability choose to grow
+    kT: [1.]
+    mu: [-14.6] #in unit of KT
+    delmu: [0.]
+    # muend: [100.0] # increase mu when shell almost close
+    lambda: [1.0]
+    seed: [1]
+    #Energy Kinds and Params
+    BONDHARM: [ON]
+    # gen_bondk: [0.]
+    # shcp_bondk: [0.]
+    # sh_bondk: [0.1,1.,2.,5.]
+    sh_bondk: [600]
+    DIHEDHARM: [ON]
+    sh_dihedk: [200.]
+    LJ: [OFF]
+    lj_eps: [0.1]
+    lj_rcut: [5.] 
+    MORSE: [OFF]
+    morse_rcut: [1.732]
+    morse_D0: [0.1]
+    morse_R0: [1.]
+    morse_alpha: [0.]
+    YUKAWA: [OFF]
+    bjerrum: [0.7]
+    debye: [1.0]
+    #time/Relax info
+    dt: [0.01]
+    period: [1000]
+    total: [10000]
+    ftol: [0.0001]
+    Etol: [0.0001]
+    maxrun: [50]
+    # 'H_Q': [1.8],
+    # 'N_P': [2000],
+    # 'MINIMIZE_TOTAL': [10000],
+    # 'NAME': ['Eps3Arm5'],
