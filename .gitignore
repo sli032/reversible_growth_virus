@@ -1,4 +1,4 @@
-R*
+R(*
 *.csv
+*.DS_Store
 *.pyc
-.DS_Store
