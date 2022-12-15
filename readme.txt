@@ -1,3 +1,10 @@
+Version installed:
+
+python = 3.5.6
+pandas = 0.19.0
+hoomd = 2.3.1
+
+
 Run Code:
 1.Generate parameter files:
   python2 param.py parent_param.yaml
